@@ -45,7 +45,7 @@ pipeline {
         }
       }
     }
-    stage('Update Deployment File') {
+   /* stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "Java-springboot-appcode"
             GIT_USER_NAME = "Teja-Chittamuri"
@@ -65,6 +65,6 @@ pipeline {
                 '''
             }
         }
-    }
+    }*/
   }
 }
