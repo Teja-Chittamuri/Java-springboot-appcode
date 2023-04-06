@@ -56,9 +56,9 @@ pipeline {
                     git config user.email "tejschittamuri@gmail.com"
                     git config user.name "Teja Chittamuri"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i 's+tejachittamuri/springbootappcicd.*+tejachittamuri/springbootappcicd:${BUILD_NUMBER}+g' spring-boot-appmanifest/deployment.yaml
+                    sed -i 's+tejachittamuri/springbootappcicd.*+tejachittamuri/springbootappcicd:${env.BUILD_NUMBER}+g' spring-boot-appmanifest/deployment.yaml
                     git add spring-boot-appmanifest/deployment.yaml
-                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+                    git commit -m "Update deployment image to version ${env.BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
                 '''
             }
