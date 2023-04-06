@@ -47,7 +47,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "Java-springboot-appmanifest"
+            GIT_REPO_NAME = "Java-springboot-appcode"
             GIT_USER_NAME = "Teja-Chittamuri"
         }
         steps {
