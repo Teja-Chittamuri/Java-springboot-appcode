@@ -9,10 +9,10 @@ Prequesites:
 * Java application code hosted on a Git repository
 * Ec2 server with Jenkins,Sonarqube and Docker Installed.(t2.medium or above)
 * Kubernetes cluster (For testing purpose Minikube is also fine)
-* Argo CD
+* Argo CD controller deployed on K8s cluster using K8s Operators.
 
-Steps:
---------
+Steps to confiure the Pipeline:
+----------------------------------------
 
 1. Jenkins plugins to Install:
    1.1 Github plugin
@@ -21,11 +21,11 @@ Steps:
    1.4 Docker Pipeline plugin
    1.5 Sonarqube plugin
    1.6 Salck Notifications
-   
-
+      
 2. Create a new Jenkins pipeline:
    2.1 In Jenkins, create a new pipeline job and configure it with the Git repository URL for the Java application.
    2.2 Add a Jenkinsfile to the Git repository to define the pipeline stages.
+   2.3 Add docker-creds(Username & Password), github(API Token) and sonarqube token in jenkins. (Manage Jenkins >>  Manage credentails >> Add credentials) 
 
 3. Define the pipeline stages:
     Stage 1: Checkout the source code from Git.
@@ -48,7 +48,9 @@ Steps:
     Stage 8: Use Argo CD to promote the application to a production environment.
 
 5. Set up Argo CD:
-    Install and configure Argo CD K8s opeartors : https://operatorhub.io/operator/argocd-operatorusing on the Kubernetes cluster.
+    Install and configure Argo CD using K8s opeartors on the Kubernetes cluster.
+       https://operatorhub.io/operator/argocd-operatorusing -- Recommended way of doing
+       https://medium.com/@mehmetodabashi/installing-argocd-on-minikube-and-deploying-a-test-application-caa68ec55fbf   -- Simplest way of doing
     Set up a Git repository for Argo CD to track the changes and sync the Kubernetes manifests accordingly.
     
 
