@@ -14,7 +14,7 @@ Prequesites:
 Steps:
 
 1. Jenkins plugins to Install:
-
+---------------------------------
    1.1 Github plugin
    1.2 Maven Integration plugin
    1.3 Docker
