@@ -1,5 +1,61 @@
-Jenkins Pipeline for Java based application using Maven, SonarQube, Docker, Argo CD and Kubernetes
+Jenkins Pipeline for Java-springboot based application using Maven, SonarQube, Docker, Argo CD and Kubernetes
+-------------------------------------------------------------------------------------------------------------------
 ![image](https://user-images.githubusercontent.com/111578142/230550209-1edd036f-5b63-4f86-8f7f-e3af3a9dbbdd.png)
+
+Here are the step-by-step details to set up an end-to-end Jenkins pipeline for a Java application using SonarQube, Argo CD, Helm, and Kubernetes:
+
+Prequesites:
+
+* Java application code hosted on a Git repository
+* Ec2 server with Jenkins,Sonarqube and Docker Installed.(t2.medium or above)
+* Kubernetes cluster (For testing purpose Minikube is also fine)
+* Argo CD
+
+Steps:
+--------
+
+1. Jenkins plugins to Install:
+   1.1 Github plugin
+   1.2 Maven Integration plugin
+   1.3 Docker
+   1.4 Docker Pipeline plugin
+   1.5 Sonarqube plugin
+   1.6 Salck Notifications
+   
+
+2. Create a new Jenkins pipeline:
+   2.1 In Jenkins, create a new pipeline job and configure it with the Git repository URL for the Java application.
+   2.2 Add a Jenkinsfile to the Git repository to define the pipeline stages.
+
+3. Define the pipeline stages:
+    Stage 1: Checkout the source code from Git.
+    Stage 2: Build the Java application using Maven.
+    Stage 3: Run unit tests using JUnit and maven targets like mvn test && mvn verify.
+    Stage 4: Run SonarQube analysis to check the code quality.
+    Stage 5: Package the application into a JAR file.
+    Stage 6: Use the Jar file to build the docker image using the dockerfile specified in the repository.
+    Satge7: Update the docker image tag using shell script to update the image tag in k8s manifest file.
+    Stage 7: Promote the application to a production environment using Argo CD.
+
+4. Configure Jenkins pipeline stages:
+    Stage 1: Use the Git plugin to check out the source code from the Git repository.
+    Stage 2: Use the Maven Integration plugin to build the Java application.
+    Stage 3: Use the JUnit and Mockito plugins to run unit tests.
+    Stage 4: Use the SonarQube plugin to analyze the code quality of the Java application.
+    Stage 5: Use the Maven Integration plugin to package the application into a JAR file.
+    Stage 6: Use the Kubernetes Continuous Deploy plugin to deploy the application to a test environment using Helm.
+    Stage 7: Use a testing framework like Selenium to run user acceptance tests on the deployed application.
+    Stage 8: Use Argo CD to promote the application to a production environment.
+
+5. Set up Argo CD:
+    Install and configure Argo CD K8s opeartors : https://operatorhub.io/operator/argocd-operatorusing on the Kubernetes cluster.
+    Set up a Git repository for Argo CD to track the changes and sync the Kubernetes manifests accordingly.
+    
+
+7. Run the Jenkins pipeline:
+   7.1 Configure Github webhooks which will automatically detect the change in src code and trigger the Jenkins pipeline to start the CI/CD process for the Java application.
+   7.2 Monitor the pipeline stages and fix any issues that arise.
+
 
 
 # Spring Boot based Java web application
