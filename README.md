@@ -1,3 +1,7 @@
+Jenkins Pipeline for Java based application using Maven, SonarQube, Docker, Argo CD and Kubernetes
+![image](https://user-images.githubusercontent.com/111578142/230550209-1edd036f-5b63-4f86-8f7f-e3af3a9dbbdd.png)
+
+
 # Spring Boot based Java web application
  
 This is a simple Sprint Boot based Java application that can be built using Maven. Sprint Boot dependencies are handled using the pom.xml 
