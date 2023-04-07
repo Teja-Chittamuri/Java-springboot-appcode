@@ -11,8 +11,7 @@ Prequesites:
 * Kubernetes cluster (For testing purpose Minikube is also fine)
 * Argo CD controller deployed on K8s cluster using K8s Operators.
 
-Steps to confiure the Pipeline:
-----------------------------------------
+Steps:
 
 1. Jenkins plugins to Install:
    1.1 Github plugin
