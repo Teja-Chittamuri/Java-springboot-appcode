@@ -42,7 +42,9 @@ Steps:
 4. Configure Jenkins pipeline stages:
 
     Stage 1: Use the Git plugin to check out the source code from the Git repository.
+    
     Stage 2: Use the Maven Integration plugin to build the Java application.
+    
     Stage 3: Use the JUnit and Mockito plugins to run unit tests.
     Stage 4: Use the SonarQube plugin to analyze the code quality of the Java application.
     Stage 5: Use the Maven Integration plugin to package the application into a JAR file.
@@ -130,4 +132,6 @@ cd sonarqube-9.4.0.54424/bin/linux-x86-64/
 
 Hurray !! Now you can access the `SonarQube Server` on `http://<ip-address>:9000` 
 
+
+Happy Learning😊😊
 
