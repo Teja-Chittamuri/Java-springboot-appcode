@@ -1,4 +1,3 @@
-
 pipeline {
   agent {
     docker {
@@ -65,5 +64,17 @@ pipeline {
             }
         }
     }
+
   }
+  post {
+        always {
+            slackSend (color: '#36a64f', message: "Build Status: ${currentBuild.currentResult}", tokenCredentialId: 'slack-token') 
+        }
+        success {
+            slackSend (color: '#36a64f', message: "Build Succeeded: ${env.BUILD_URL} ${env.BUILD_NUMBER}", tokenCredentialId: 'slack-token')
+        }
+        failure {
+            slackSend (color: '#ff0000', message: "Build Failed: ${env.BUILD_URL}  ${env.BUILD_NUMBER}", tokenCredentialId: 'slack-token')
+        }
+    }
 }
