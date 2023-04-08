@@ -15,17 +15,17 @@ Steps:
 
 1. Jenkins plugins to Install:
 
-   1.1 Github plugin
+     1.1 Github plugin
    
-   1.2 Maven Integration plugin
+     1.2 Maven Integration plugin
    
-   1.3 Docker
+     1.3 Docker
    
-   1.4 Docker Pipeline plugin
+     1.4 Docker Pipeline plugin
    
-   1.5 Sonarqube plugin
+     1.5 Sonarqube plugin
    
-   1.6 Salck Notifications
+     1.6 Salck Notifications
       
 2. Create a new Jenkins pipeline:
 
@@ -74,15 +74,19 @@ Steps:
 5. Set up Argo CD:
 
     5.1 Install and configure Argo CD using K8s opeartors on the Kubernetes cluster.
-           https://operatorhub.io/operator/argocd-operatorusing -- Recommended way of doing
-            https://medium.com/@mehmetodabashi/installing-argocd-on-minikube-and-deploying-a-test-application-caa68ec55fbf   -- Simplest way of doing
+    
+          https://operatorhub.io/operator/argocd-operatorusing -- Recommended way of doing
+           
+          https://medium.com/@mehmetodabashi/installing-argocd-on-minikube-and-deploying-a-test-application-caa68ec55fbf   -- Simplest way of doing(Testing purpose)
+            
     5.2 Set up a Git repository for Argo CD to track the changes and sync the Kubernetes manifests accordingly.
     
 
-7. Run the Jenkins pipeline:
+6. Run the Jenkins pipeline:
 
-   7.1 Configure Github webhooks which will automatically detect the change in src code and trigger the Jenkins pipeline to start the CI/CD process for the Java application.
-   7.2 Monitor the pipeline stages and fix any issues that arise.
+   6.1 Configure Github webhooks which will automatically detect the change in src code and trigger the Jenkins pipeline to start the CI/CD process for the Java application.
+   
+   6.2 Monitor the pipeline stages and fix any issues that arise.
 
 
 
