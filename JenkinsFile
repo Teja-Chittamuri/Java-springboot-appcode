@@ -55,7 +55,7 @@ pipeline {
                     git config user.name "Teja Chittamuri"
                     cat spring-boot-appmanifest/deployment.yaml
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i 's/replaceImageTag/${BUILD_NUMBER}/g' spring-boot-appmanifest/deployment.yaml
+                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" spring-boot-appmanifest/deployment.yaml
                     cat spring-boot-appmanifest/deployment.yaml
                     git add spring-boot-appmanifest/deployment.yaml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
